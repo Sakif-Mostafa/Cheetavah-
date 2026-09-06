@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cheetavah toe socks — crew cotton, solid color and multicolored toe socks." />
+  <title>Cheetavah Socks</title>
+  <style>
+    :root {
+      --ink: #161616;
+      --muted: #6f6f6f;
+      --line: #e9e9e9;
+      --paper: #ffffff;
+      --soft: #f6f6f3;
+      --accent: #df3127;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    .topbar {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 13px;
+      letter-spacing: .03em;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: auto;
+      min-height: 72px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .nav-cta {
+      border: 1px solid #111;
+      padding: 10px 16px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 68px 24px 54px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .94;
+      letter-spacing: -.055em;
+      max-width: 760px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 590px;
+      margin: 24px 0 30px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 750;
+      font-size: 14px;
+      border: 1px solid #111;
+    }
+    .button.primary { background: #111; color: #fff; }
+    .button.secondary { background: #fff; }
+
+    .hero-art {
+      min-height: 480px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(223,49,39,.18), transparent 23%),
+        linear-gradient(145deg, #f8f4ef 0%, #ece9e2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 44px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-sock {
+      width: min(72%, 350px);
+      aspect-ratio: 3 / 4;
+      border-radius: 120px 120px 80px 80px;
+      background: linear-gradient(145deg, #202b43, #111827);
+      transform: rotate(-13deg);
+      box-shadow: 0 35px 70px rgba(0,0,0,.14);
+      position: relative;
+    }
+    .hero-sock::before {
+      content: "CHEETAVAH";
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      color: rgba(255,255,255,.92);
+      font-size: 18px;
+      letter-spacing: .22em;
+      font-weight: 900;
+    }
+    .hero-sock::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      bottom: 5px;
+      width: 130px;
+      height: 92px;
+      border-radius: 0 70px 70px 55px;
+      background: #111827;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 54px 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -.035em;
+    }
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .view-all {
+      font-size: 14px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.08);
+    }
+    .media {
+      aspect-ratio: 1 / 1;
+      background: var(--soft);
+      overflow: hidden;
+      position: relative;
+    }
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+    .fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #8a8a8a;
+      background: linear-gradient(145deg, #fafafa, #eeeeea);
+    }
+    .card-body { padding: 17px 17px 18px; }
+    .card-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+    .card-meta { font-size: 13px; color: var(--muted); }
+
+    .benefits {
+      margin-top: 38px;
+      border-radius: 28px;
+      background: #111;
+      color: #fff;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .benefit strong { display: block; font-size: 18px; margin-bottom: 7px; }
+    .benefit span { color: #cfcfcf; line-height: 1.55; font-size: 14px; }
+
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid var(--line);
+      background: #fafafa;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 38px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      color: #676767;
+      font-size: 13px;
+    }
+    .footer-brand { color: #111; font-weight: 900; letter-spacing: .12em; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 44px; }
+      .hero-art { min-height: 390px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .benefits { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .nav-inner { padding: 0 16px; }
+      .hero, .section { padding-left: 16px; padding-right: 16px; }
+      .hero { gap: 26px; }
+      .hero-art { min-height: 310px; }
+      .product-grid { grid-template-columns: 1fr 1fr; gap: 11px; }
+      .card-body { padding: 13px; }
+      .section-head { align-items: start; }
+      .view-all { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Comfort made for natural movement.</div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">CHEETAVAH</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#crew">Crew Cotton</a>
+        <a href="#solid">Solid Colors</a>
+        <a href="#multi">Multicolored</a>
+        <a class="nav-cta" href="#shop">Shop Socks</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Cheetavah Toe Socks</div>
+        <h1>Move Naturally.<br />Feel Every Step.</h1>
+        <p>Toe socks designed for everyday comfort, natural movement and a secure fit. Explore Cheetavah crew cotton, solid color and multicolored collections.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#crew">Shop Collection</a>
+          <a class="button secondary" href="#why">Why Cheetavah</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Cheetavah sock illustration">
+        <div class="hero-sock"></div>
+      </div>
+    </section>
+
+    <section class="section" id="crew">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collection 01</div>
+          <h2>Crew Cotton Toe Socks</h2>
+          <p>Soft everyday crew socks with individual toe compartments.</p>
+        </div>
+        <a class="view-all" href="#shop">View collection →</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="card">
+          <div class="media">
+            <div class="fallback">Add image:<br><b>images/navy-blue.jpg</b></div>
+            <img src="images/navy-blue.jpg" alt="Cheetavah Navy Blue Crew Cotton Toe Socks" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body"><div class="card-title">Navy Blue</div><div class="card-meta">Crew Cotton Toe Socks</div></div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <div class="fallback">Add image:<br><b>images/grey.jpg</b></div>
+            <img src="images/grey.jpg" alt="Cheetavah Grey Crew Cotton Toe Socks" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body"><div class="card-title">Grey</div><div class="card-meta">Crew Cotton Toe Socks</div></div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <div class="fallback">Add image:<br><b>images/ash.jpg</b></div>
+            <img src="images/ash.jpg" alt="Cheetavah Ash Crew Cotton Toe Socks" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body"><div class="card-title">Ash</div><div class="card-meta">Crew Cotton Toe Socks</div></div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <div class="fallback">Add image:<br><b>images/dark-grey.jpg</b></div>
+            <img src="images/dark-grey.jpg" alt="Cheetavah Dark Grey Crew Cotton Toe Socks" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body"><div class="card-title">Dark Grey</div><div class="card-meta">Crew Cotton Toe Socks</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="solid">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collection 02</div>
+          <h2>Solid Color Toe Socks</h2>
+          <p>Clean single-color styles for training, travel and everyday wear.</p>
+        </div>
+        <a class="view-all" href="#shop">View collection →</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/solid-white.jpg</b></div><img src="images/solid-white.jpg" alt="White Solid Color Toe Socks" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">White</div><div class="card-meta">Solid Color Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/solid-dark-grey.jpg</b></div><img src="images/solid-dark-grey.jpg" alt="Dark Grey Solid Color Toe Socks" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Dark Grey</div><div class="card-meta">Solid Color Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/solid-red.jpg</b></div><img src="images/solid-red.jpg" alt="Red Solid Color Toe Socks" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Red</div><div class="card-meta">Solid Color Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/solid-reddish-pink.jpg</b></div><img src="images/solid-reddish-pink.jpg" alt="Reddish Pink Solid Color Toe Socks" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Reddish Pink</div><div class="card-meta">Solid Color Toe Socks</div></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="multi">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collection 03</div>
+          <h2>Multicolored Toe Socks</h2>
+          <p>Playful color combinations with the same toe-by-toe comfort.</p>
+        </div>
+        <a class="view-all" href="#shop">View collection →</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/multicolor-1.jpg</b></div><img src="images/multicolor-1.jpg" alt="Multicolored Toe Socks Style 1" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Multicolor 01</div><div class="card-meta">Multicolored Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/multicolor-2.jpg</b></div><img src="images/multicolor-2.jpg" alt="Multicolored Toe Socks Style 2" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Multicolor 02</div><div class="card-meta">Multicolored Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/multicolor-3.jpg</b></div><img src="images/multicolor-3.jpg" alt="Multicolored Toe Socks Style 3" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Multicolor 03</div><div class="card-meta">Multicolored Toe Socks</div></div></article>
+        <article class="card"><div class="media"><div class="fallback">Add image:<br><b>images/multicolor-4.jpg</b></div><img src="images/multicolor-4.jpg" alt="Multicolored Toe Socks Style 4" onerror="this.style.display='none'" /></div><div class="card-body"><div class="card-title">Multicolor 04</div><div class="card-meta">Multicolored Toe Socks</div></div></article>
+      </div>
+
+      <div class="benefits" id="why">
+        <div class="benefit"><strong>Natural Toe Movement</strong><span>Individual toe compartments help your toes move more independently and comfortably.</span></div>
+        <div class="benefit"><strong>Everyday Comfort</strong><span>Designed for daily wear, workouts, travel and casual activity.</span></div>
+        <div class="benefit"><strong>Cheetavah Fit</strong><span>A clean, performance-inspired look built around comfort and freedom of movement.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Coming Soon</div>
+          <h2>Shop Cheetavah</h2>
+          <p>Connect these product cards to your Amazon listings or your own checkout when you are ready.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">CHEETAVAH</div>
+      <div>© <span id="year"></span> Cheetavah. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
